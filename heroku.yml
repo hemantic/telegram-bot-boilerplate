@@ -1,0 +1,15 @@
+setup:
+  addons:
+    - plan: heroku-redis
+build:
+  docker:
+    bot: src/Dockerfile_heroku
+run:
+  web:
+    command:
+      - uwsgi --http 0:$PORT --module srv.web:app --master --processes 4 --threads 2
+    image: bot
+  worker:
+    command:
+      - celery -A srv.tasks worker
+    image: bot

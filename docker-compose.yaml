@@ -1,0 +1,63 @@
+version: '3.6'
+
+services:
+  web:
+    build: ./src
+    restart: always
+    command: uwsgi --http :8000 --module srv.web:app --workers 1 --threads 1
+    volumes:
+      - ./src:/srv:delegated
+    env_file:
+      - ./.env
+    links:
+      - mongo
+    ports:
+      - 80:8000
+    depends_on:
+      - worker
+      - mongo
+
+  worker:
+    build: ./src
+    restart: always
+    command: celery -A srv.tasks:celery worker
+    volumes:
+      - ./src:/srv:delegated
+    environment:
+      - C_FORCE_ROOT=on
+    env_file:
+      - ./.env
+    links:
+      - redis
+      - mongo
+    depends_on:
+      - mongo
+      - redis
+
+  flower:
+    build: ./src
+    restart: always
+    command: celery -A srv.tasks:celery flower --port=5555
+    volumes:
+      - ./src:/srv:delegated
+    links:
+      - redis
+    env_file:
+      - ./.env
+    ports:
+      - 5555:5555
+
+  redis:
+    image: redis:4-alpine
+
+  mongo:
+    image: mongo:4.2.2-bionic
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=biolerplate_mongo_user
+      - MONGO_INITDB_ROOT_PASSWORD=boilerplate_mongo_password
+      - MONGO_INITDB_DATABASE=boilerplate_mongo_db
+    ports:
+      - 27017:27017
+    volumes:
+      - ./infra/mongodb/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro

@@ -1,0 +1,21 @@
+{
+    "update_id": 736079467,
+    "message": {
+        "message_id": 288,
+        "from": {
+            "id": 98765432,
+            "is_bot": false,
+            "first_name": "GlobBlob",
+            "username": "username",
+            "language_code": "ru"
+        },
+        "chat": {
+            "id": 98765432,
+            "first_name": "GlobBlob",
+            "username": "username",
+            "type": "private"
+        },
+        "date": 1582031515,
+        "text": "Три"
+    }
+}

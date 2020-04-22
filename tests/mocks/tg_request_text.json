@@ -1,0 +1,23 @@
+{
+    "update_id": 696748726,
+    "message": {
+        "message_id": 9,
+        "from": {
+            "id": 987654321,
+            "is_bot": false,
+            "first_name": "Акакий",
+            "last_name": "Акакиевич",
+            "username": "vasisualiy_is_my_name",
+            "language_code": "en"
+        },
+        "chat": {
+            "id": 987654321,
+            "first_name": "Акакий",
+            "last_name": "Акакиевич",
+            "username": "vasisualiy_is_my_name",
+            "type": "private"
+        },
+        "date": 1578838812,
+        "text": "Как дела, потомки?"
+    }
+}

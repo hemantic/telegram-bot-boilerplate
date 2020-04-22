@@ -1,0 +1,34 @@
+{
+    "update_id": 736079341,
+    "callback_query": {
+        "id": "1648050674863765",
+        "from": {
+            "id": 987654321,
+            "is_bot": false,
+            "first_name": "Акакий",
+            "last_name": "Акакиевич",
+            "username": "vasisualiy_is_my_name",
+            "language_code": "en"
+        },
+        "message": {
+            "message_id": 83,
+            "from": {
+                "id": 982115507,
+                "is_bot": true,
+                "first_name": "Sample bot",
+                "username": "sample_bot"
+            },
+            "chat": {
+                "id": 987654321,
+                "first_name": "Акакий",
+                "last_name": "Акакиевич",
+                "username": "vasisualiy_is_my_name",
+                "type": "private"
+            },
+            "date": 1580227635,
+            "text": "Выберите:"
+        },
+        "chat_instance": "-4304799251541625846",
+        "data": "keyboard_info"
+    }
+}

@@ -1,0 +1,81 @@
+version: 2.1
+
+orbs:
+  heroku: circleci/heroku@0.0.10
+
+defaults: &defaults
+  docker:
+    - image: circleci/python:3.8-buster
+      environment:
+        - REDIS_URL=redis://redis:6379/0
+    - image: redis:alpine
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "src/requirements.txt" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run:
+          name: Install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r src/requirements.txt
+
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "src/requirements.txt" }}
+
+      - run:
+          name: Run Flake8
+          command: |
+            . venv/bin/activate
+            cd src && flake8
+
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+  unittest:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+
+      - run:
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pytest --cov-report=xml --cov=src tests/ --junitxml=test-results/pytest/results.xml
+            codecov
+
+      - store_test_results:
+          path: test-results
+
+  deploy:
+    executor: heroku/default # Uses the basic buildpack-deps image, which has the prerequisites for installing heroku's CLI.
+    steps:
+      - checkout
+      - heroku/install # Runs the heroku install command, if necessary.
+      - heroku/deploy-via-git: # Deploys branch to Heroku via git push.
+          only-branch: master # If you specify an only-branch, the deploy will not occur for any other branch.
+
+workflows:
+  continuous-delivery:
+    jobs:
+      - build
+      - unittest:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - unittest

@@ -1,0 +1,6 @@
+[flake8]
+    # Ignoring line length because we don't use any template engine yet
+    # Ignoring annotation enforcement because fuck you, that's why
+    ignore = E501, D
+    max-line-length = 120
+    exclude = venv

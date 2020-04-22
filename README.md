@@ -4,12 +4,14 @@
 
 Шаблон включает в себя:
 
-1. Поддержку локального запуска в виде [Docker](https://www.docker.com) контейнеров через docker-compose
-2. Возможность разворачивания в [Heroku](https://www.heroku.com) в виде Docker образов через heroku.yml
+1. Примеры базовых команд для бота
+2. Сохранение пользователей и их команд в MongoDB, а так же базовые классы моделей [MongoEngine ORM](https://mongoengine-odm.readthedocs.io)
 3. Очереди в [Celery](http://www.celeryproject.org) с базовыми классами для быстрой разработки воркеров
-4. Отправку статистики в [Sentry](https://sentry.io/) из коробки
-5. Преднастроенный набор линтеров [flake-8](https://pypi.org/project/flake8/)
-6. Базовые автотесты через [pytest](https://docs.pytest.org/)
+4. Поддержку локального запуска в виде [Docker](https://www.docker.com) контейнеров через docker-compose
+5. Возможность разворачивания в [Heroku](https://www.heroku.com) в виде Docker образов через heroku.yml
+6. Отправку статистики в [Sentry](https://sentry.io/) из коробки
+7. Преднастроенный набор линтеров [flake-8](https://pypi.org/project/flake8/)
+8. Базовые автотесты через [pytest](https://docs.pytest.org/)
 
 ## Подготовка к использованию
 

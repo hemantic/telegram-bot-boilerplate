@@ -1,7 +1,8 @@
 import logging
+
 import sentry_sdk
-from sentry_sdk.integrations.falcon import FalconIntegration
 from envparse import env
+from sentry_sdk.integrations.falcon import FalconIntegration
 
 # загружаем конфиг
 env.read_envfile()

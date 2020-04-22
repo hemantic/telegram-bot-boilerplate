@@ -10,6 +10,7 @@
 4. Поддержку локального запуска в виде [Docker](https://www.docker.com) контейнеров через docker-compose
 5. Возможность разворачивания в [Heroku](https://www.heroku.com) в виде Docker образов через heroku.yml
 6. Отправку статистики в [Sentry](https://sentry.io/) из коробки
+7. Отправку продуктовых метрик в [Amplitude](https://amplitude.com)
 7. Преднастроенный набор линтеров [flake-8](https://pypi.org/project/flake8/)
 8. Базовые автотесты через [pytest](https://docs.pytest.org/)
 
@@ -27,3 +28,9 @@
 3. Запуск линтеров
 4. Отправку результатов автотестов в [Codecov](https://codecov.io)
 5. Публикацию приложения в Heroku, если обновилась ветка `master`
+
+## Шпаргалка по командам
+
+1. Запуск автотестов локально – `pytest`
+2. Запуск линтеров – `flake8`
+3. Запуск автоформатирования кода – `isort -rc .`

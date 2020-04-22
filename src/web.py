@@ -1,11 +1,11 @@
 import json
-import falcon
 import logging
-from telegram import Bot, Update
+
+import falcon
 from envparse import env
+from telegram import Bot, Update
 
 from .bot import reset_webhook, start_bot
-
 
 logger = logging.getLogger(__name__)
 

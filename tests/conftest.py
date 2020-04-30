@@ -135,6 +135,7 @@ def requests_mocker():
     perform real requests without being noticed.
     """
     with requests_mock.Mocker() as m:
+        m.post('https://api.amplitude.com/2/httpapi', json={'code': 200})
         yield m
 
 

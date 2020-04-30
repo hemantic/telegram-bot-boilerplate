@@ -38,8 +38,6 @@ def track_amplitude(chat_id: int, event: str, event_properties=None, timestamp=N
                 'Telegram chat ID': user.chat_id,
                 'Name': user.full_name,
                 'Telegram user name': user.user_name,
-                'Daily catalog request limit': user.daily_catalog_requests_limit,
-                'Subscribed to WB categories updates': user.subscribe_to_wb_categories_updates,
             },
             event_properties=event_properties,
             timestamp=timestamp,

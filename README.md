@@ -1,5 +1,7 @@
 [![CircleCI](https://circleci.com/gh/wondersell/telegram-bot-boilerplate.svg?style=svg)](https://circleci.com/gh/wondersell/telegram-bot-boilerplate)
 
+[![codecov](https://codecov.io/gh/wondersell/telegram-bot-boilerplate/branch/master/graph/badge.svg)](https://codecov.io/gh/wondersell/telegram-bot-boilerplate)
+
 
 ## Шаблон для Телеграм ботов
 

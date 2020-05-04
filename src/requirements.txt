@@ -1,4 +1,4 @@
-python-telegram-bot==12.6.1
+python-telegram-bot==12.7
 falcon==2.0.0
 
 envparse==0.2.0

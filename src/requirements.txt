@@ -31,7 +31,7 @@ flake8-comprehensions==3.2.2
 flake8-debugger==3.2.1
 flake8-docstrings==1.5.0
 flake8-polyfill==1.0.2
-flake8-quotes==3.0.0
+flake8-quotes==3.2.0
 flake8-todo==0.7
 flake8-annotations-complexity==0.0.4
 flake8-variables-names==0.0.3

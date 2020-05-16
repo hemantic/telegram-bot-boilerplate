@@ -36,7 +36,7 @@ def help_start(update: Update, context: CallbackContext):
 
     context.bot.send_message(
         chat_id=user.chat_id,
-        text=f'Ooops I did it again. Чтобы бот начал что-то делать, нужно что-нибудь напрограммировать.',
+        text='Ooops I did it again. Чтобы бот начал что-то делать, нужно что-нибудь напрограммировать.',
     )
 
 

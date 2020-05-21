@@ -59,6 +59,7 @@ def start_bot(bot):
     dp = Dispatcher(bot, None, workers=0, use_context=True)
 
     dp.add_handler(CommandHandler('start', help_start))
+    dp.add_handler(CommandHandler('help', help_start))
 
     dp.add_handler(MessageHandler(Filters.all, help_command_not_found))
 

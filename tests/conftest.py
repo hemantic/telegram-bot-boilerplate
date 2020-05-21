@@ -1,4 +1,5 @@
 import json
+from os import environ
 from unittest.mock import patch
 
 import mongoengine as me
@@ -145,4 +146,9 @@ def bot_user():
         chat_id=56473829,
         user_name='boilerplate_test_user',
         full_name='I am Dummy',
-    )
+    ).save()
+
+
+@pytest.fixture()
+def set_amplitude():
+    environ['AMPLITUDE_API_KEY'] = 'dummy_amplitude_key'
